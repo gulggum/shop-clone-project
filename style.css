@@ -1,0 +1,9 @@
+/* css 초기화 reset */
+@import "./src/base.css";
+
+/* css변수들 */
+@import "./src/variables.css";
+
+body {
+  font-family: sans-serif;
+}

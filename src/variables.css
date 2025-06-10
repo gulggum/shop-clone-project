@@ -1,0 +1,23 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
+:root {
+  --primary-color-1: hsl(21, 81%, 29%);
+  --primary-color-2: hsl(21, 62%, 45%);
+  --primary-color-3: hsl(21, 65%, 59%);
+
+  --grey-color-1: #102a42;
+  --grey-color-2: hsl(209, 34%, 30%);
+  --grey-color-3: hsl(210, 31%, 49%);
+  --grey-color-4: hsl(210, 31%, 80%);
+  --grey-color-5: hsl(210, 36%, 96%);
+
+  --white-color: #fff;
+  --black-color: #222;
+
+  --transition: all 0.3s linear;
+  --spacing: 0.1rem;
+  --radius: 0.25rem;
+  --dark-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --max-width: 1170px;
+  --fixed-width: 620px;
+}
