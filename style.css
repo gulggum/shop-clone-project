@@ -1,9 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap");
+
 /* css 초기화 reset */
-@import "./src/base.css";
+@import "./src/styles/base.css";
 
 /* css변수들 */
-@import "./src/variables.css";
+@import "./src/styles/variables.css";
+
+/* components */
+@import "./src/styles/header.css";
 
 body {
   font-family: sans-serif;
+  background-color: gainsboro;
+}
+
+.container {
+  width: 90vw;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+* {
+  list-style: none;
+  color: var(--black-color);
+}
+
+a {
+  text-decoration: none;
 }

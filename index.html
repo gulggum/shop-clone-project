@@ -4,10 +4,72 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>쇼핑몰클론</title>
+    <script
+      src="https://kit.fontawesome.com/73deddf0a6.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
+      rel="stylesheet"
+    />
+
     <link rel="stylesheet" href="./style.css" />
     <script src="./app.js" defer type="module"></script>
   </head>
   <body>
-    <h1>쇼핑몰시작</h1>
+    <div class="container">
+      <div class="loading hidden">loading...</div>
+      <header class="header">
+        <!-- 모바일버전 메뉴버튼 -->
+        <div class="mobile_nav_toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <!-- 모바일 메뉴 컨테이터 -->
+        <div class="mobile_nav_box hidden">
+          <div class="mobile_nav_wrap">
+            <div class="close-btn">
+              <i class="fa-solid fa-xmark fa-xl"></i>
+            </div>
+            <ul class="nav_links">
+              <li>
+                <a href="#" class="nav_link">
+                  <i class="fa-solid fa-house"></i><span>home</span>
+                </a>
+              </li>
+              <li>
+                <a href="#" class="nav_link">
+                  <i class="fa-solid fa-couch"></i><span>products</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="nav_link"
+                  ><i class="fa-solid fa-book"></i> <span>about</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 모바일 메뉴 컨테이터 -->
+        <div class="header_nav">
+          <ul class="nav_links">
+            <li>
+              <a href="#" class="nav_link">home</a>
+            </li>
+            <li>
+              <a href="#" class="nav_link">products</a>
+            </li>
+            <li>
+              <a href="#" class="nav_link">about</a>
+            </li>
+          </ul>
+        </div>
+        <div class="header-logo">foody</div>
+        <div class="header_cart-btn">
+          <i class="fa-solid fa-cart-shopping"></i>
+          <div class="cart_num">1</div>
+        </div>
+      </header>
+    </div>
   </body>
 </html>
