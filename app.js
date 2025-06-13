@@ -1,12 +1,10 @@
 import { navToggle } from "./src/component/nav_toggle.js";
+import { getProductData } from "./src/fetch.js";
 import { getElement } from "./src/init.js";
 
-const loading = getElement(".loading");
-
 function load() {
-  loading.classList.remove("hidden");
-
   navToggle();
+  getProductData();
 }
 
 window.addEventListener("DOMContentLoaded", load);

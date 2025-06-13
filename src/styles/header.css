@@ -1,19 +1,18 @@
-.main_title {
-  font-family: "Kaushan Script", sans-serif;
-}
-
 .loading {
   text-align: center;
   font-size: 1.5rem;
   text-transform: capitalize;
 }
 .header {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: var(--max-width);
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.5rem;
-  padding: 30px 0px;
+  padding: 30px 5px;
 }
 
 .header-logo {

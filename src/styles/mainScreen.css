@@ -1,0 +1,55 @@
+.main_section {
+  min-height: 100vh;
+  margin-top: -8rem;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(../images/main-bcg.jpeg) center/cover;
+  display: grid;
+  place-items: center;
+}
+.main_wrap {
+  width: 90vw;
+}
+
+.main_title {
+  font-family: "Kaushan Script", sans-serif;
+  font-weight: 600;
+  text-transform: capitalize;
+  color: var(--white-color);
+  letter-spacing: 0.1rem;
+}
+
+.sub_title {
+  color: var(--white-color);
+  letter-spacing: 0.2rem;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+.main_btn {
+  padding: 8px 10px;
+  border: 1px solid var(--white-color);
+  border-radius: var(--radius);
+  color: var(--white-color);
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+@media screen and (max-width: 800px) {
+  .main_title {
+    font-size: 2.8rem;
+  }
+  .sub_title {
+    font-size: 1.5rem;
+  }
+  .main_btn {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .main_title {
+    font-size: 3.8rem;
+  }
+  .sub_title {
+    font-size: 2rem;
+  }
+}

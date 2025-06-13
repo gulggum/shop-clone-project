@@ -4,6 +4,7 @@
 @import "./src/styles/base.css";
 
 /* css변수들 */
+@import "./src/styles/mainScreen.css";
 @import "./src/styles/variables.css";
 
 /* components */
@@ -15,9 +16,18 @@ body {
 }
 
 .container {
-  width: 90vw;
-  max-width: var(--max-width);
+  width: 100%;
   margin: 0 auto;
+}
+.loading {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+  padding: 50px;
+  background-color: var(--white-color);
+  z-index: 33555553;
 }
 
 button {
