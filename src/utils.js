@@ -11,4 +11,12 @@ const setStorageItem = (name, item) => {
   localStorage.setItem(name, JSON.stringify(item));
 };
 
-export { getElement, getElements, setStorageItem };
+//가격 포맷함수(USD기준)
+const formatPrice = (price) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format((price / 100).toFixed(2));
+};
+
+export { getElement, getElements, setStorageItem, formatPrice };
