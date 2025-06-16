@@ -24,7 +24,7 @@
   margin-bottom: 20px;
   font-weight: 500;
 }
-.main_btn {
+.main_btn a {
   padding: 8px 10px;
   border: 1px solid var(--white-color);
   border-radius: var(--radius);
@@ -33,7 +33,7 @@
   text-transform: uppercase;
   cursor: pointer;
 }
-.main_btn:hover {
+.main_btn a:hover {
   transition: var(--transition);
   background-color: var(--white-color);
   color: var(--primary-color-2);
@@ -66,6 +66,7 @@
   content: "/";
   font-size: 1rem;
   color: var(--primary-color-2);
+  margin-right: 20px;
 }
 .featured_wrap {
   margin-bottom: 30px;

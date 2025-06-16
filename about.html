@@ -8,16 +8,93 @@
       src="https://kit.fontawesome.com/73deddf0a6.js"
       crossorigin="anonymous"
     ></script>
-
     <link
       href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap"
       rel="stylesheet"
     />
-
     <link rel="stylesheet" href="./style.css" />
     <script src="./app.js" defer type="module"></script>
   </head>
   <body>
-    <h1>about페이지</h1>
+    <div class="container">
+      <header class="header">
+        <!-- 모바일버전 메뉴버튼 -->
+        <div class="mobile_nav_toggle_btn">
+          <i class="fa-solid fa-bars"></i>
+        </div>
+        <!-- 모바일 메뉴 컨테이터 -->
+        <div class="mobile_nav_box hidden">
+          <div class="mobile_nav_wrap">
+            <div class="close-btn">
+              <i class="fa-solid fa-xmark fa-xl"></i>
+            </div>
+            <ul class="nav_links">
+              <li>
+                <a href="/" class="nav_link">
+                  <i class="fa-solid fa-house"></i><span>home</span>
+                </a>
+              </li>
+              <li>
+                <a href="./products.html" class="nav_link">
+                  <i class="fa-solid fa-couch"></i><span>products</span></a
+                >
+              </li>
+              <li>
+                <a href="./about.html" class="nav_link"
+                  ><i class="fa-solid fa-book"></i> <span>about</span></a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- 모바일 메뉴 컨테이터 -->
+        <div class="header_nav">
+          <ul class="nav_links">
+            <li>
+              <a href="/" class="nav_link" style="color: var(--grey-color-2)"
+                >home</a
+              >
+            </li>
+            <li>
+              <a
+                href="./products.html"
+                class="nav_link"
+                style="color: var(--grey-color-2)"
+                >products</a
+              >
+            </li>
+            <li>
+              <a
+                href="./about.html"
+                class="nav_link"
+                style="color: var(--grey-color-2)"
+                >about</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div class="header-logo" style="color: var(--grey-color-2)">foody</div>
+        <button class="header_cart-btn">
+          <i
+            class="fa-solid fa-cart-shopping"
+            style="color: var(--grey-color-2)"
+          ></i>
+          <div class="cart_num">1</div>
+        </button>
+      </header>
+      <!-- 페이지 제목라인 -->
+      <div class="page_title">
+        <h1>home / about</h1>
+      </div>
+      <div class="about_info">
+        <h2 class="about_title">about page</h2>
+        <p class="about_des">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nihil iste a
+          at necessitatibus officia dolorum quas nostrum repellat corporis
+          distinctio consequatur asperiores laborum eaque inventore repudiandae
+          ex, commodi eius voluptates?
+        </p>
+      </div>
+    </div>
   </body>
 </html>
