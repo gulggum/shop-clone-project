@@ -4,7 +4,8 @@ const getProductData = async () => {
   try {
     const res = await fetch(URL);
     const data = await res.json();
-    console.log(data);
+
+    return data;
   } catch (error) {
     throw new Error("데이터를 불러오지 못했습니다.");
   }

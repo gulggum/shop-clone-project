@@ -1,4 +1,4 @@
-import { getElement } from "../init.js";
+import { getElement } from "../utils.js";
 
 const navBar = getElement(".mobile_nav_toggle_btn");
 const navBox = getElement(".mobile_nav_box");

@@ -1,10 +1,16 @@
+import { displayProducts } from "./src/component/displayProducts.js";
 import { navToggle } from "./src/component/nav_toggle.js";
+import { setupStore } from "./src/component/store.js";
 import { getProductData } from "./src/fetch.js";
-import { getElement } from "./src/init.js";
+import { getElement } from "./src/utils.js";
 
-function load() {
+async function load() {
   navToggle();
-  getProductData();
+  displayProducts();
+  const products = await getProductData();
+  if (products) {
+    setupStore(products);
+  }
 }
 
 window.addEventListener("DOMContentLoaded", load);
