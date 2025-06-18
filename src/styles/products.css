@@ -1,0 +1,74 @@
+.products_wrap {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 50px;
+  max-width: var(--max-width);
+}
+
+.search_input {
+  width: 100%;
+  border: none;
+  font-size: 0.8rem;
+  height: 2.5rem;
+  padding: 1rem;
+  background-color: var(--grey-color-5);
+  border-radius: var(--radius);
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  margin-bottom: 0.4rem;
+}
+h4 {
+  font-weight: 500;
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+  margin-top: 1rem;
+}
+.company_menu_lists {
+  margin-top: 1rem;
+  letter-spacing: var(--spacing);
+  text-transform: capitalize;
+}
+.company_title {
+  padding: 1.5rem 0 0 0;
+  font-weight: 500;
+}
+.company_menu_lists {
+  padding: 0 0.5rem;
+}
+.company_name {
+  padding: 0 0.1rem;
+  color: var(--grey-color-3);
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-bottom: 0.4rem;
+}
+
+.price_length_bar {
+  display: flex;
+  flex-direction: column;
+}
+.price_length_bar input {
+  padding: 1rem;
+  width: 80%;
+}
+.price_length_bar span {
+  text-transform: capitalize;
+  color: var(--grey-color-3);
+}
+
+@media screen and (max-width: 800px) {
+  .products_lists {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (min-width: 800px) {
+  .products_lists {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}

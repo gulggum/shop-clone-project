@@ -76,11 +76,36 @@
           </ul>
         </div>
         <div class="header-logo" style="color: var(--grey-color-2)">foody</div>
-        <div class="header_cart-btn">
-          <i class="fa-solid fa-cart-shopping"></i>
+        <button class="header_cart-btn">
+          <i
+            class="fa-solid fa-cart-shopping"
+            style="color: var(--grey-color-2)"
+          ></i>
           <div class="cart_num">1</div>
-        </div>
+        </button>
       </header>
+      <!-- 페이지 제목라인 서식 -->
+      <div class="page_title">
+        <h1>home / products</h1>
+      </div>
+      <div class="products_wrap">
+        <section class="products_nav_bar">
+          <form class="search_form">
+            <input type="text" class="search_input" placeholder="search..." />
+          </form>
+          <h4>company</h4>
+          <ul class="company_menu_lists">
+            <li class="company_name"><a href="#">all</a></li>
+          </ul>
+          <!-- 왼쪽 nav_bar -->
+          <div class="price_length_bar">
+            <h4>price</h4>
+            <input type="range" />
+            <span>value:$10</span>
+          </div>
+        </section>
+        <section class="products_lists"></section>
+      </div>
     </div>
   </body>
 </html>

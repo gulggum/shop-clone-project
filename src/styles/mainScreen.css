@@ -8,6 +8,7 @@
 }
 .main_wrap {
   width: 90vw;
+  max-width: var(--max-width);
 }
 
 .main_title {

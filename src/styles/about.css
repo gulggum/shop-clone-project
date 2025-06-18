@@ -7,6 +7,7 @@
   font-size: 1.8rem;
   font-weight: 500;
   letter-spacing: var(--spacing);
+  margin-bottom: 50px;
 }
 .page_title h1 {
   max-width: var(--max-width);
@@ -18,7 +19,6 @@
 
 .about_info {
   max-width: var(--max-width);
-  padding: 80px 0px;
 }
 .about_title {
   text-align: center;
@@ -49,7 +49,4 @@
   .about_des {
     font-size: 0.9rem;
   }
-}
-
-@media screen and (min-width: 800px) {
 }

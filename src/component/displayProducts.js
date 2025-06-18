@@ -1,19 +1,10 @@
-import { getProductData } from "../fetch.js";
-import { getElement, formatPrice } from "../utils.js";
+import { formatPrice } from "../utils.js";
 
-const feturedList = getElement(".featured_lists");
-
-const displayProducts = async () => {
-  const products = await getProductData();
-  //featured가 true인것만 필터링해 보여주기
-  const featuredFilter = products.filter(
-    (product) => product.featured === true
-  );
-  console.log(featuredFilter);
-  feturedList.innerHTML = featuredFilter
-    .map((product) => {
-      const { id, name, image, price } = product;
-      return ` <article class="featured_wrap">
+export const displayProducts = (element, company) => {
+  let displayItems = company
+    .map((item) => {
+      const { id, image, name, price } = item;
+      return `<article class="featured_wrap">
             <div class="featured_info">
               <div class="product_img">
                 <img src="${image}" alt="img" />
@@ -28,6 +19,5 @@ const displayProducts = async () => {
           </article>`;
     })
     .join("");
+  element.innerHTML = displayItems;
 };
-
-export { displayProducts };
