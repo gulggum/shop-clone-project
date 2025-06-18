@@ -5,7 +5,10 @@ import { displayProducts } from "./displayProducts.js";
 const feturedList = getElement(".featured_lists");
 const companyUl = getElement(".company_menu_lists");
 const productLists = getElement(".products_lists");
+const searchForm = getElement(".search_form");
+const searchInput = getElement(".search_input");
 
+//----------featured lists
 const displayFeatured = async () => {
   const allProducts = await getProductData();
   const products = [...allProducts];
@@ -18,7 +21,7 @@ const displayFeatured = async () => {
   displayProducts(feturedList, featuredFilter);
 };
 
-// products페이지
+//----------------- products페이지
 const displayProductsPage = async () => {
   const allProducts = await getProductData();
   const products = [...allProducts];
@@ -32,6 +35,7 @@ const displayProductsPage = async () => {
     },
     ["all"]
   );
+  //메뉴바 메뉴 리스트 출력
   const companyName = companies.map((company) => {
     return `  <li class="company_name">${company}</li>`;
   });
@@ -56,6 +60,20 @@ const displayProductsPage = async () => {
     });
   });
   displayProducts(productLists, products);
+
+  //검색필터 기능
+  searchForm.addEventListener("input", (e) => {
+    e.preventDefault();
+    const searchValue = searchInput.value.toLowerCase();
+    const searchFilter = products.filter((product) => {
+      return product.name.toLowerCase().includes(searchValue);
+    });
+    if (searchFilter.length === 0) {
+      productLists.innerHTML = `<p>검색결과가 없습니다.</p>`;
+    } else {
+      return displayProducts(productLists, searchFilter);
+    }
+  });
 };
 
 export { displayFeatured, displayProductsPage };

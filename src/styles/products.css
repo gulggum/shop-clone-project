@@ -15,7 +15,6 @@
   padding: 1rem;
   background-color: var(--grey-color-5);
   border-radius: var(--radius);
-  text-transform: capitalize;
   letter-spacing: var(--spacing);
   margin-bottom: 0.4rem;
 }
