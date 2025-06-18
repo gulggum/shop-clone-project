@@ -15,6 +15,7 @@
   padding: 1rem;
   background-color: var(--grey-color-5);
   border-radius: var(--radius);
+
   letter-spacing: var(--spacing);
   margin-bottom: 0.4rem;
 }
@@ -48,11 +49,10 @@ h4 {
   display: flex;
   flex-direction: column;
 }
-.price_length_bar input {
-  padding: 1rem;
+.price_input {
   width: 80%;
 }
-.price_length_bar span {
+.price_value {
   text-transform: capitalize;
   color: var(--grey-color-3);
 }

@@ -7,8 +7,10 @@ const companyUl = getElement(".company_menu_lists");
 const productLists = getElement(".products_lists");
 const searchForm = getElement(".search_form");
 const searchInput = getElement(".search_input");
+const priceInput = getElement(".price_input");
+const priceValue = getElement(".price_value");
 
-//----------featured lists
+//-------------------------featured lists
 const displayFeatured = async () => {
   const allProducts = await getProductData();
   const products = [...allProducts];
@@ -21,7 +23,7 @@ const displayFeatured = async () => {
   displayProducts(feturedList, featuredFilter);
 };
 
-//----------------- products페이지
+//--------------------------- products페이지
 const displayProductsPage = async () => {
   const allProducts = await getProductData();
   const products = [...allProducts];
@@ -72,6 +74,30 @@ const displayProductsPage = async () => {
       productLists.innerHTML = `<p>검색결과가 없습니다.</p>`;
     } else {
       return displayProducts(productLists, searchFilter);
+    }
+  });
+
+  //가격필터 기능
+  let maxPrice = products.map((product) => product.price);
+  maxPrice = Math.max(...maxPrice);
+  maxPrice = Math.ceil(maxPrice / 100);
+  priceInput.value = maxPrice;
+  priceInput.max = maxPrice;
+  priceInput.min = 0;
+  priceValue.textContent = `value:$${maxPrice}`;
+
+  priceInput.addEventListener("input", () => {
+    const value = parseInt(priceInput.value);
+    console.log(value);
+    priceValue.textContent = `value:$${value}`;
+
+    let priceFilter = products.filter(
+      (product) => product.price / 100 <= value
+    );
+
+    displayProducts(productLists, priceFilter);
+    if (priceFilter.length < 1) {
+      productLists.innerHTML = `<p>조건에 맞는 결과를 찾지 못하였습니다.</p>`;
     }
   });
 };
