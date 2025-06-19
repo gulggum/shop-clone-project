@@ -1,0 +1,123 @@
+.cart_page {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 400px;
+  height: 100%;
+  background-color: var(--grey-color-5);
+  padding: 1rem;
+  transform: translateX(100%);
+  transition: var(--transition);
+}
+.cart_page.visible {
+  transform: translateX(0);
+  transition: var(--transition);
+}
+
+.close_btn i {
+  color: var(--grey-color-3);
+  font-weight: 1000;
+  font-size: 2rem;
+  cursor: pointer;
+}
+.cart_title {
+  font-size: 2rem;
+  font-family: "Kaushan Script", sans-serif;
+  text-transform: capitalize;
+  text-align: center;
+  padding: 1rem;
+}
+.cart_item_lists {
+  display: grid;
+  grid-template-rows: auto;
+  height: 70%;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkid-overflow-scrolling: touch;
+  -ma-overflow-style: none;
+  scrollbar-width: none;
+  background-color: var(--white-color);
+  border-radius: var(--radius);
+}
+
+.cart_item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 80px;
+  padding: 0.8rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.cart_item_img {
+  width: 90px;
+  height: 50px;
+  background-color: orange;
+  border-radius: var(--radius);
+}
+.cart_item_info {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.item_name {
+  font-size: 1.1rem;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  color: var(--grey-color-2);
+}
+.item_price {
+  font-size: 0.8rem;
+  color: var(--grey-color-2);
+  margin-top: -0.2rem;
+}
+.remove_btn {
+  cursor: pointer;
+  color: var(--grey-color-3);
+  font-size: 0.9rem;
+  letter-spacing: var(--spacing);
+}
+.remove_btn:hover {
+  transform: var(--transition);
+  color: var(--primary-color-2);
+}
+
+.cart_item_count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.count_up i,
+.count_down i {
+  color: var(--primary-color-2);
+}
+
+.cart_bottom {
+  width: 100%;
+  text-align: center;
+}
+.total_price {
+  font-family: "Kaushan Script", sans-serif;
+  font-size: 2rem;
+  padding: 2rem;
+  text-transform: capitalize;
+}
+
+.checkout_btn {
+  padding: 5px 80px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  background-color: var(--primary-color-2);
+  color: var(--white-color);
+  text-transform: uppercase;
+  letter-spacing: var(--spacing);
+  border-radius: var(--radius);
+}
+.checkout_btn:hover {
+  background-color: var(--primary-color-3);
+  color: var(--black-color);
+  transition: var(--transition);
+}

@@ -1,5 +1,5 @@
 import { getProductData, URL } from "../fetch.js";
-import { getElement, getElements } from "../utils.js";
+import { formatPrice, getElement, getElements } from "../utils.js";
 import { displayProducts } from "./displayProducts.js";
 
 const feturedList = getElement(".featured_lists");
@@ -60,7 +60,6 @@ const displayProductsPage = async () => {
         displayProducts(productLists, products);
       } else {
         displayProducts(productLists, companyFilter);
-        console.log(companyFilter);
       }
     });
   });
@@ -91,7 +90,6 @@ const displayProductsPage = async () => {
 
   priceInput.addEventListener("input", () => {
     const value = parseInt(priceInput.value);
-    console.log(value);
     priceValue.textContent = `value:$${value}`;
 
     let priceFilter = products.filter(
@@ -109,21 +107,15 @@ const displayProductsPage = async () => {
 let productId;
 const displayDetailPage = async () => {
   if (!detailContainer) return; //- 해당요소없을시 아래함수 실행되지않게 방어
-  const urlId = window.location.search;
+  const params = new URLSearchParams(window.location.search);
+  const urlId = params.get("id");
   console.log(urlId);
   try {
-    const res = await fetch(`${URL}${urlId}`);
+    const res = await fetch(`${URL}/${urlId}`);
     const product = await res.json();
     console.log(product);
-    const {
-      id: productId,
-      name,
-      price,
-      company,
-      description,
-      image,
-    } = product[0];
-    const { 0: firstColor, 1: secondColor } = product[0].colors;
+    const { id: productId, name, price, company, description, image } = product;
+    const { 0: firstColor, 1: secondColor } = product.colors;
 
     detailContainer.innerHTML = `
  <article class="detail_wrap">
@@ -131,7 +123,7 @@ const displayDetailPage = async () => {
           <div class="detail_info">
             <div class="detail_title">${name}</div>
             <div class="detail_company">by ${company}</div>
-            <div class="detail_price">${price}</div>
+            <div class="detail_price">${formatPrice(price)}</div>
             <div class="detail_color">
               <span style="background:${firstColor};"></span>
               <span  style="background:${secondColor};"></span>
