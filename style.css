@@ -8,6 +8,7 @@
 @import "./src/styles/variables.css";
 
 /* components */
+@import "./src/styles/detail.css";
 @import "./src/styles/products.css";
 @import "./src/styles/about.css";
 @import "./src/styles/header.css";

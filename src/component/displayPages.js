@@ -1,5 +1,5 @@
-import { getProductData } from "../fetch.js";
-import { getElement, formatPrice, getElements } from "../utils.js";
+import { getProductData, URL } from "../fetch.js";
+import { getElement, getElements } from "../utils.js";
 import { displayProducts } from "./displayProducts.js";
 
 const feturedList = getElement(".featured_lists");
@@ -9,6 +9,7 @@ const searchForm = getElement(".search_form");
 const searchInput = getElement(".search_input");
 const priceInput = getElement(".price_input");
 const priceValue = getElement(".price_value");
+const detailContainer = getElement(".detail_container");
 
 //-------------------------featured lists
 const displayFeatured = async () => {
@@ -27,6 +28,7 @@ const displayFeatured = async () => {
 const displayProductsPage = async () => {
   const allProducts = await getProductData();
   const products = [...allProducts];
+  if (!productLists) return; //- 해당요소없을시 아래함수 실행되지않게 방어
 
   const companies = products.reduce(
     (acc, curr) => {
@@ -42,6 +44,7 @@ const displayProductsPage = async () => {
     return `  <li class="company_name">${company}</li>`;
   });
   companyUl.innerHTML = companyName.join("");
+  if (!productLists) return;
 
   const companyBtns = getElements(".company_name");
 
@@ -102,4 +105,48 @@ const displayProductsPage = async () => {
   });
 };
 
-export { displayFeatured, displayProductsPage };
+//-----------------detail page
+let productId;
+const displayDetailPage = async () => {
+  if (!detailContainer) return; //- 해당요소없을시 아래함수 실행되지않게 방어
+  const urlId = window.location.search;
+  console.log(urlId);
+  try {
+    const res = await fetch(`${URL}${urlId}`);
+    const product = await res.json();
+    console.log(product);
+    const {
+      id: productId,
+      name,
+      price,
+      company,
+      description,
+      image,
+    } = product[0];
+    const { 0: firstColor, 1: secondColor } = product[0].colors;
+
+    detailContainer.innerHTML = `
+ <article class="detail_wrap">
+          <img class="detail_img" src="${image}" alt="img" />
+          <div class="detail_info">
+            <div class="detail_title">${name}</div>
+            <div class="detail_company">by ${company}</div>
+            <div class="detail_price">${price}</div>
+            <div class="detail_color">
+              <span style="background:${firstColor};"></span>
+              <span  style="background:${secondColor};"></span>
+            </div>
+            <div class="detail_desc">
+             ${description}
+            </div>
+            <button class="featured_all_btn">
+              <a href="./products.html">all product</a>
+            </button>
+          </div>
+        </article>`;
+  } catch (error) {
+    detailContainer.innerHTML = `<p>상세페이지를 불러올수 없습니다.</p>`;
+  }
+};
+
+export { displayFeatured, displayProductsPage, displayDetailPage };

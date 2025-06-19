@@ -1,0 +1,63 @@
+.detail_container {
+  max-width: var(--max-width);
+  width: 90vw;
+  margin: 0 auto;
+}
+.detail_wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0 auto;
+  gap: 30px;
+}
+.detail_img {
+  height: 400px;
+  background-color: orange;
+  border-radius: var(--radius);
+}
+
+.detail_title {
+  font-size: 2.8rem;
+  text-transform: capitalize;
+  letter-spacing: var(--spacing);
+  font-weight: 400;
+}
+
+.detail_company {
+  font-family: "Kaushan Script", sans-serif;
+  color: var(--grey-color-4);
+  font-size: 1.3rem;
+  letter-spacing: var(--spacing);
+  text-transform: uppercase;
+}
+
+.detail_price {
+  padding: 1rem 0;
+  font-size: 1.3rem;
+  color: var(--grey-color-2);
+  font-weight: 500;
+}
+.detail_color {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 0px;
+}
+
+.detail_color span {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+}
+
+.detail_desc {
+  padding: 1rem 0px;
+  color: var(--grey-color-3);
+}
+.featured_all_btn {
+  padding: 1rem 0;
+}
+
+@media screen and (max-width: 800px) {
+  .detail_wrap {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,4 +1,4 @@
-const URL = "https://684655cc7dbda7ee7aaec05e.mockapi.io/products";
+export const URL = "https://684655cc7dbda7ee7aaec05e.mockapi.io/products";
 
 const getProductData = async () => {
   try {
