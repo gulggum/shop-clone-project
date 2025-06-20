@@ -42,6 +42,7 @@ export const inJectCartHTML = () => {
   });
 };
 
+//장바구니 아이콘 담기 이벤트(디테일페이지 담기기능은 displayPage.js detail부분에 따로 작성)
 document.addEventListener("click", (e) => {
   const target = e.target;
   if (target.classList.contains("fa-cart-plus")) {

@@ -28,7 +28,7 @@ async function load() {
   let cart = getStorageItem("cart");
   displayCartItem(cart);
   updateCartCount(cart);
-  cartUpDownCount(cart);
+  cartUpDownCount();
 }
 
 window.addEventListener("DOMContentLoaded", load);

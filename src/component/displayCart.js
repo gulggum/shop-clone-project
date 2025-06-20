@@ -4,6 +4,7 @@ import {
   getStorageItem,
   setStorageItem,
 } from "../utils.js";
+import { updateCartCount } from "./cart.js";
 
 export const displayCartItem = (cart) => {
   const cartLists = getElement(".cart_item_lists");
@@ -34,20 +35,28 @@ export const displayCartItem = (cart) => {
 //수량조절
 export const cartUpDownCount = () => {
   document.addEventListener("click", (e) => {
-    const id = e.target.dataset.id;
-    console.log(id);
+    const target = e.target;
+    const button = target.closest("button");
+    if (!button) return;
+
+    const id = button.id;
     if (!id) return;
+
     let cart = getStorageItem("cart");
     const item = cart.find((item) => item.id === id);
 
-    if (e.target.classList.contains("count_up")) {
+    if (button.classList.contains("count_up")) {
       item.amount += 1;
-    } else if (e.target.classList.contains("count_down")) {
+    } else if (button.classList.contains("count_down")) {
       item.amount -= 1;
       if (item.amount === 0) {
         cart = cart.filter((item) => item.id !== id);
       }
     }
+    setStorageItem("cart", cart);
+    displayCartItem(cart);
+    cartPriceTotal(cart);
+    updateCartCount(cart);
   });
 };
 

@@ -4,10 +4,10 @@
   text-transform: capitalize;
 }
 .header {
+  position: relative;
   width: 90vw;
   margin: 0 auto;
   max-width: var(--max-width);
-  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -1,5 +1,13 @@
 import { getProductData, URL } from "../fetch.js";
-import { formatPrice, getElement, getElements } from "../utils.js";
+import {
+  formatPrice,
+  getElement,
+  getElements,
+  getStorageItem,
+} from "../utils.js";
+import { addToCart } from "./cart.js";
+import { displayCartItem, cartPriceTotal } from "./displayCart.js";
+import { updateCartCount } from "./cart.js";
 import { displayProducts } from "./displayProducts.js";
 
 const feturedList = getElement(".featured_lists");
@@ -104,7 +112,7 @@ const displayProductsPage = async () => {
 };
 
 //-----------------detail page
-let productId;
+
 const displayDetailPage = async () => {
   if (!detailContainer) return; //- 해당요소없을시 아래함수 실행되지않게 방어
   const params = new URLSearchParams(window.location.search);
@@ -112,7 +120,7 @@ const displayDetailPage = async () => {
   try {
     const res = await fetch(`${URL}/${urlId}`);
     const product = await res.json();
-    const { id: productId, name, price, company, description, image } = product;
+    const { id, name, price, company, description, image } = product;
     const { 0: firstColor, 1: secondColor } = product.colors;
 
     detailContainer.innerHTML = `
@@ -129,11 +137,29 @@ const displayDetailPage = async () => {
             <div class="detail_desc">
              ${description}
             </div>
-            <button class="add_cart_btn">
+            <button class="add_cart_btn" data-id="${id}">
              add to cart
             </button>
           </div>
         </article>`;
+
+    //-------detail페이지에 addToCart기능
+    document.addEventListener("click", (e) => {
+      const target = e.target;
+      if (target.classList.contains("add_cart_btn")) {
+        const id = target.dataset.id;
+        const products = getStorageItem("store");
+        const product = products.find((item) => {
+          return item.id === id;
+        });
+        if (product) {
+          const updateCart = addToCart(product); //cart받아오기
+          displayCartItem(updateCart); //화면에 랜더링
+          cartPriceTotal(updateCart); //총가격계산
+          updateCartCount(); //상품종류개수 카운트
+        }
+      }
+    });
   } catch (error) {
     detailContainer.innerHTML = `<p>상세페이지를 불러올수 없습니다.</p>`;
   }
