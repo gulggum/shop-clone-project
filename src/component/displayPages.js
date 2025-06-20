@@ -109,11 +109,9 @@ const displayDetailPage = async () => {
   if (!detailContainer) return; //- 해당요소없을시 아래함수 실행되지않게 방어
   const params = new URLSearchParams(window.location.search);
   const urlId = params.get("id");
-  console.log(urlId);
   try {
     const res = await fetch(`${URL}/${urlId}`);
     const product = await res.json();
-    console.log(product);
     const { id: productId, name, price, company, description, image } = product;
     const { 0: firstColor, 1: secondColor } = product.colors;
 
@@ -131,8 +129,8 @@ const displayDetailPage = async () => {
             <div class="detail_desc">
              ${description}
             </div>
-            <button class="featured_all_btn">
-              <a href="./products.html">all product</a>
+            <button class="add_cart_btn">
+             add to cart
             </button>
           </div>
         </article>`;

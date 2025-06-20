@@ -10,7 +10,7 @@ export const displayProducts = (element, company) => {
                 <img src="${image}" alt="img" />
                 <div class="featured_links">
                   <a href="./detail.html?id=${id}"><i class="fa-solid fa-magnifying-glass"></i></a>
-                  <i class="fa-solid fa-cart-plus"></i>
+                  <i class="fa-solid fa-cart-plus" data-id=${id}></i>
                 </div>
               </div>
               <h5 class="product_title">${name}</h5>
@@ -21,5 +21,3 @@ export const displayProducts = (element, company) => {
     .join("");
   element.innerHTML = displayItems;
 };
-
-export const displayDetailProduct = () => {};

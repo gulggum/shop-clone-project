@@ -1,3 +1,17 @@
+.cart_page_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: none;
+  transition: var(--transition);
+}
+.cart_page_bg.visible {
+  display: block;
+  transition: var(--transition);
+}
 .cart_page {
   position: fixed;
   top: 0;
@@ -8,6 +22,7 @@
   padding: 1rem;
   transform: translateX(100%);
   transition: var(--transition);
+  z-index: 1111;
 }
 .cart_page.visible {
   transform: translateX(0);
@@ -28,8 +43,8 @@
   padding: 1rem;
 }
 .cart_item_lists {
-  display: grid;
-  grid-template-rows: auto;
+  display: flex;
+  flex-direction: column;
   height: 70%;
   overflow-y: auto;
   overflow-x: hidden;

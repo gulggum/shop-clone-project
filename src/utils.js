@@ -13,7 +13,7 @@ const setStorageItem = (name, item) => {
 
 //loacalstorage에 저장된 데이터 가져오기
 const getStorageItem = (name) => {
-  return JSON.parse(localStorage.getItem(name) || []);
+  return JSON.parse(localStorage.getItem(name) || "[]");
 };
 
 //가격 포맷함수(USD기준)
