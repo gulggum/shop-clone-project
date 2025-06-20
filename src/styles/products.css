@@ -58,9 +58,13 @@ h4 {
 }
 
 @media screen and (max-width: 800px) {
-  .products_lists {
+  .products_wrap {
     display: grid;
     grid-template-columns: 1fr;
+  }
+  .products_nav_bar {
+    width: 200px;
+    margin-bottom: 2rem;
   }
 }
 
