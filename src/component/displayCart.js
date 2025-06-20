@@ -29,11 +29,14 @@ export const displayCartItem = (cart) => {
     `;
     })
     .join("");
-  //수량조절
+};
+
+//수량조절
+export const cartUpDownCount = () => {
   document.addEventListener("click", (e) => {
     const id = e.target.dataset.id;
+    console.log(id);
     if (!id) return;
-
     let cart = getStorageItem("cart");
     const item = cart.find((item) => item.id === id);
 
@@ -60,15 +63,13 @@ export const cartPriceTotal = (cart) => {
 //카트아이템 삭제기능
 export const cartItemRemove = () => {
   const cartLists = getElement(".cart_item_lists");
-  const cartItem = getElement(".cart_item");
-  let cart = getStorageItem("cart");
   cartLists.addEventListener("click", (e) => {
     const target = e.target;
-    console.log(target);
     if (target.classList.contains("remove_btn")) {
-      const li = target.closest("li");
-      id = li.dataset.id;
-      cart.filter((item) => item.id !== id);
+      const li = getElement(".cart_item");
+      const id = li.dataset.id;
+      let cart = getStorageItem("cart");
+      cart = cart.filter((item) => item.id !== id);
       setStorageItem("cart", cart);
       displayCartItem(cart);
       cartPriceTotal(cart);

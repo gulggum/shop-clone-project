@@ -2,7 +2,7 @@ import { inJectCartHTML, updateCartCount } from "./src/component/cart.js";
 import {
   displayCartItem,
   cartItemRemove,
-  cartPriceTotal,
+  cartUpDownCount,
 } from "./src/component/displayCart.js";
 import {
   displayFeatured,
@@ -24,11 +24,11 @@ async function load() {
   displayProductsPage();
   displayDetailPage();
   await inJectCartHTML();
+  cartItemRemove();
   let cart = getStorageItem("cart");
   displayCartItem(cart);
   updateCartCount(cart);
-  cartPriceTotal(cart);
-  cartItemRemove();
+  cartUpDownCount(cart);
 }
 
 window.addEventListener("DOMContentLoaded", load);
